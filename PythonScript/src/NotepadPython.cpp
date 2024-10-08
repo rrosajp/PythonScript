@@ -15,7 +15,7 @@ namespace NppPythonScript
 
 void export_notepad()
 {
-	//lint -e1793 While calling ’Symbol’: Initializing the implicit object parameter ’Type’ (a non-const reference) with a non-lvalue
+	//lint -e1793 While calling ï¿½Symbolï¿½: Initializing the implicit object parameter ï¿½Typeï¿½ (a non-const reference) with a non-lvalue
 	// The class and enum declarations are used as designed, but they mess up Lint.
 	boost::python::register_exception_translator<process_start_exception>(&translateProcessStart);
 	boost::python::register_exception_translator<InvalidValueProvidedException>(&translateInvalidValueProvidedException);
@@ -223,8 +223,8 @@ void export_notepad()
 	boost::python::enum_<winVer>("WINVER")
 		.value("UNKNOWN", WV_UNKNOWN)
 		.value("WIN32S", WV_WIN32S)
-		.value("95", WV_95)
-		.value("98", WV_98)
+		.value("WIN95", WV_95)
+		.value("WIN98", WV_98)
 		.value("ME", WV_ME)
 		.value("NT", WV_NT)
 		.value("W2K", WV_W2K)
@@ -293,7 +293,12 @@ void export_notepad()
 		.value("FILERENAMED", NPPNOTIF_FILERENAMED)
 		.value("FILEBEFOREDELETE", NPPNOTIF_FILEBEFOREDELETE)
 		.value("FILEDELETEFAILED", NPPNOTIF_FILEDELETEFAILED)
-		.value("FILEDELETED", NPPNOTIF_FILEDELETED);
+		.value("FILEDELETED", NPPNOTIF_FILEDELETED)
+		.value("DARKMODECHANGED", NPPNOTIF_DARKMODECHANGED)
+		.value("CMDLINEPLUGINMSG", NPPNOTIF_CMDLINEPLUGINMSG)
+		.value("EXTERNALLEXERBUFFER", NPPNOTIF_EXTERNALLEXERBUFFER)
+		.value("GLOBALMODIFIED", NPPNOTIF_GLOBALMODIFIED)
+		.value("NATIVELANGCHANGED", NPPNOTIF_NATIVELANGCHANGED);
 
 	boost::python::enum_<MessageBoxFlags>("MESSAGEBOXFLAGS")
 		.value("OK", NPPMB_OK)
@@ -799,6 +804,9 @@ void export_notepad()
 		.value("LANG_MSSQL", NPPIDM_LANG_MSSQL)
 		.value("LANG_GDSCRIPT", NPPIDM_LANG_GDSCRIPT)
 		.value("LANG_HOLLYWOOD", NPPIDM_LANG_HOLLYWOOD)
+		.value("LANG_GOLANG", NPPIDM_LANG_GOLANG)
+		.value("LANG_RAKU", NPPIDM_LANG_RAKU)
+		.value("LANG_TOML", NPPIDM_LANG_TOML)
 		.value("LANG_EXTERNAL", NPPIDM_LANG_EXTERNAL)
 		.value("LANG_EXTERNAL_LIMIT", NPPIDM_LANG_EXTERNAL_LIMIT)
 		.value("LANG_USER", NPPIDM_LANG_USER)
